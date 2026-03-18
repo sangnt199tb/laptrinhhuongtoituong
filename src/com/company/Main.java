@@ -6,7 +6,8 @@ public class Main {
 
     public static void main(String[] args) {
 //        kiemTraNgayTrongThang();
-        qltv();
+//        tinhTienDien();
+//        qltv();
     }
 
     public static void kiemTraNgayTrongThang(){
@@ -186,5 +187,29 @@ public class Main {
             }
             System.out.println();
         }
+    }
+
+    public static void tinhTienDien(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Nhập số m3 nước tiêu thụ: ");
+        int soNuoc = sc.nextInt();
+        // Kiểm tra dữ liệu đầu vào
+        if (soNuoc <= 0) {
+            System.out.println("Số nước tiêu thụ phải lớn hơn 0!");
+            return; // dừng chương trình
+        }
+        double tien = 0;
+        if (soNuoc <= 10) {
+            tien = soNuoc * 5973;
+        } else if (soNuoc <= 20) {
+            tien = 10 * 5973 + (soNuoc - 10) * 7052;
+        } else if (soNuoc <= 30) {
+            tien = 10 * 5973 + 10 * 7052  + (soNuoc - 20) * 8669;
+        } else {
+            tien = 10 * 5973  + 10 * 7052  + 10 * 8669 + (soNuoc - 30) * 15929;
+        }
+        double tongTien = tien * 1.05;
+        System.out.println("Tổng tiền phải trả: " + tongTien + " đồng cho " + soNuoc + "m3 nước");
+        sc.close();
     }
 }
