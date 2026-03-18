@@ -64,28 +64,46 @@ public class Main {
                     System.out.println("Số đầu sách có trong thư việc: " + count);
                     System.out.println("Danh sách các cuốn sách");
                     for (int i = 0; i < count; i ++){
-                        System.out.println("cuốn sách thứ " + i + " " + titles[i] + " số lượng "  + quantities[i]);
+                        System.out.println("cuốn sách thứ " + (i + 1) + " " + titles[i] + " có số lượng "  + quantities[i]);
                     }
                     break;
                 case 2:
-                    // kiểm tra số lượng sách đã vượt quá khả năng lưu trữ của thư viện hay chưa
-                    if(count >= 100){
-                        System.out.println("không thể nhập thêm sách vì đã vượt quá khả năng lưu trữ của thư viện");
+                    // kiểm tra số lượng sách tối đa
+                    if (count >= 100) {
+                        System.out.println("Không thể nhập thêm sách vì đã vượt quá khả năng lưu trữ của thư viện");
+                        break;
                     }
-                    // Thêm sách
-                    System.out.print("Nhập vào tiêu đề sách: ");
-                    String newTitle = sc.nextLine();
-                    System.out.print("Nhập vào số lượng sách: ");
-                    int qty = sc.nextInt();
-                    sc.nextLine();
-                    if(qty < 0){
-                        System.out.println("Số lượng sách nhập vào không được nhỏ hơn 0");
+                    String newTitle;
+                    while (true) {
+                        System.out.print("Nhập vào tiêu đề sách: ");
+                        newTitle = sc.nextLine();
+                        if (newTitle.trim().isEmpty()) {
+                            System.out.println("Tên sách không được bỏ trống!");
+                        } else {
+                            break;
+                        }
                     }
 
+                    int qty;
+                    while (true) {
+                        System.out.print("Nhập vào số lượng sách: ");
+                        if (sc.hasNextInt()) {
+                            qty = sc.nextInt();
+                            sc.nextLine();
+                            if (qty < 0) {
+                                System.out.println("Số lượng sách không được nhỏ hơn 0!");
+                            } else {
+                                break;
+                            }
+                        } else {
+                            System.out.println("Vui lòng nhập số hợp lệ!");
+                            sc.nextLine();
+                        }
+                    }
                     titles[count] = newTitle;
                     quantities[count] = qty;
                     count++;
-                    System.out.println("thêm sách thành công");
+                    System.out.println("Thêm sách thành công!");
                     break;
                 case 3:
                     // Tìm sách
