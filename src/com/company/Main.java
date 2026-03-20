@@ -8,6 +8,12 @@ public class Main {
 //        kiemTraNgayTrongThang();
 //        tinhTienDien();
 //        qltv();
+
+
+        BankAccount bankAccount = new BankAccount();
+        bankAccount.setBalance(0);
+        bankAccount.setOwner("Nguyen trong sang");
+        System.out.println(bankAccount.getOwner());
     }
 
     public static void kiemTraNgayTrongThang(){
