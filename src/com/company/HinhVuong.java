@@ -3,7 +3,9 @@ package com.company;
 public class HinhVuong {
     private double canh;
 
-    public HinhVuong() {}
+    public HinhVuong() {
+        this.canh = 9.0;
+    }
 
     public HinhVuong(double canh) {
         this.canh = canh;

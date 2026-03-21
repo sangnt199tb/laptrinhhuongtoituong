@@ -6,13 +6,21 @@ public class NhanVien {
     private double heSoLuong;
 
     public static final double LUONG_MAX = 50000000;
+    private static int soLuongNV = 0;
 
-    public NhanVien() {}
+    public NhanVien() {
+        soLuongNV++;
+    }
 
     public NhanVien(String tenNhanVien, double luongCoBan, double heSoLuong) {
         this.tenNhanVien = tenNhanVien;
         this.luongCoBan = luongCoBan;
         this.heSoLuong = heSoLuong;
+        soLuongNV++;
+    }
+
+    public static int getSoLuongNV() {
+        return soLuongNV;
     }
 
     public String getTenNhanVien() {
@@ -62,4 +70,22 @@ public class NhanVien {
         System.out.println("Hệ số lương: " + heSoLuong);
         System.out.println("Lương: " + tinhLuong());
     }
+
+    public void inTTin(String loiChao) {
+        System.out.println(loiChao);
+        System.out.println("Tên NV: " + tenNhanVien);
+        System.out.println("Lương cơ bản: " + luongCoBan);
+        System.out.println("Hệ số lương: " + heSoLuong);
+        System.out.println("Lương: " + tinhLuong());
+    }
+
+    public static double tinhTongLuong(NhanVien... ds) {
+        double tongLuong = 0;
+        for (NhanVien nv : ds) {
+            tongLuong += nv.tinhLuong();
+        }
+        return tongLuong;
+    }
+
+
 }

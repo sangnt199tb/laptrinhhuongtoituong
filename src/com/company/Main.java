@@ -9,11 +9,39 @@ public class Main {
 //        tinhTienDien();
 //        qltv();
 
+//        BankAccount bankAccount = new BankAccount();
+//        bankAccount.setBalance(0);
+//        bankAccount.setOwner("Nguyen trong sang");
+//        System.out.println(bankAccount.getOwner());
 
-        BankAccount bankAccount = new BankAccount();
-        bankAccount.setBalance(0);
-        bankAccount.setOwner("Nguyen trong sang");
-        System.out.println(bankAccount.getOwner());
+        NhanVien nv11 = new NhanVien("A", 5000, 2);
+        NhanVien nv22 = new NhanVien("B", 6000, 2.5);
+        NhanVien nv33 = new NhanVien("C", 4000, 3);
+        double tong = NhanVien.tinhTongLuong(nv11, nv22, nv33);
+        System.out.println("Tổng lương: " + tong);
+
+        NhanVien nv1 = new NhanVien();
+        NhanVien nv2 = new NhanVien("Nguyen trong sang", 10000, 1.9);
+
+        // hinh tron
+        HinhTron hinhTron = new HinhTron();
+        hinhTron.setBanKinh(2.3);
+        System.out.println("Chu vi hinh tron: " + hinhTron.tinhChuVi());
+        System.out.println("Dien tich hinh tron: " + hinhTron.tinhDienTich());
+
+        HinhTron hinhTron1 = new HinhTron(2.3);
+        System.out.println("Chu vi hinh tron 1: " + hinhTron1.tinhChuVi());
+        System.out.println("Dien tich hinh tron 1: " + hinhTron1.tinhDienTich());
+
+        // hinh vuong
+        HinhVuong hinhVuong = new HinhVuong();
+        System.out.println("Chu vi hinh vuong: " + hinhVuong.tinhChuVi());
+        System.out.println("Dien tich hinh vuong: " + hinhVuong.tinhDienTich());
+
+        HinhVuong hinhVuong1 = new HinhVuong(4.0);
+        System.out.println("Chu vi hinh vuong 1 : " + hinhVuong1.tinhChuVi());
+        System.out.println("Dien tich hinh vuong 1: " + hinhVuong1.tinhDienTich());
+
     }
 
     public static void kiemTraNgayTrongThang(){
